@@ -1,0 +1,16 @@
+video {
+	object-fit: initial;
+	width: 100%;
+	height: 400px;
+}
+
+#videDiv {
+	position: relative;
+	max-width: 100%;
+}
+
+#headingDiv {
+	position: absolute;
+	top: 30%;
+	left: 37%;
+}
