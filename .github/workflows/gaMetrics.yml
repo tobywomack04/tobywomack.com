@@ -2,7 +2,7 @@ name: Fetch GA4 Metrics
 
 on:
   schedule:
-    - cron: '0 0 * * *'  # daily midnight UTC
+    - cron: '0 0 * * *'  # daily at midnight UTC
   push:
     branches:
       - main
