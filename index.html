@@ -14,32 +14,156 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<title>Toby Womack's Portfolio</title>
+		<title>Home</title>
+
+		<!-- Favicon icon -->
+		<!-- Found at: https://fontawesome.com/icons/microchip?f=classic&s=solid | Provider: Font Awesome | Last accessed 26/06/2025 -->
+		<link rel="icon" type="image/svg+xml" href="media/favicon.svg">
 
 		<!-- Stylesheets -->
 		<link rel="stylesheet" href="src/css/allStyling.css">
 		<link rel="stylesheet" href="src/css/indexStyling.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 	</head>
 
 	<body>
+		<div id="terminalIntro">
+			<div class="terminalContent" id="typewriter">
+				<!-- Lines will be typed here -->
+			</div>
+		</div>
+
 		<div id="videoDiv">
-			<video autoplay muted loop>
-				<source src="../../media/gameTrailer.mp4" type="video/mp4">
-					Your browser does not support the video tag.
-			</video>
+			<iframe
+				src="https://www.youtube.com/embed/zSLcv3m5ru0?autoplay=1&mute=1&controls=0&loop=1&playlist=zSLcv3m5ru0&modestbranding=1&rel=0&fs=0&disablekb=1&playsinline=1"
+				frameborder="0"
+			    allow="autoplay; encrypted-media"
+			    allowfullscreen
+			></iframe>
 		</div>
 
 		<div id="headingDiv"><h1>Toby Womack's Portfolio</h1></div>
 
-		<ul id="nav">
-			<li><a href="index.html" id="active">Home</a></li>
-			<li><a href="src/html/projects.html">College Projects</a></li>
-			<li><a href="src/html/about.html">About Me</a></li>
-			<li><a href="src/html/contact.html">Contact</a></li>
-		</ul>
-	</body>
+		<nav>
+			<button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">&#9776;</button>
+			<ul class="nav">
+				<!-- Page navigation -->
+				<li class="webPage"><a href="index.html" class="active" pageFade>Home</a></li>
+				<li class="webPage"><a href="src/html/about.html" pageFade>About Me</a></li>
+				<li class="webPage"><a href="src/html/projects.html" pageFade>Projects</a></li>
 
-	<footer>
-		<p>&copy Toby Womack | All Rights Reserved</p>
-	</footer>
+				<!-- Space between page navigation, search icon & social links -->
+			    <li class="spacer"></li>
+
+			    <!-- Hidden search box -->
+			    <li class="searchBar"><input type="text" id="searchInput" placeholder="Search..."></li>
+
+			    <!-- Search icon -->
+			    <!-- Found at: https://fontawesome.com/icons/magnifying-glass?f=classic&s=solid | Provider: Font Awesome | Last accessed 26/06/2025 -->
+			    <li class="navIcon"><a href="#" onclick="toggleSearch(event)"><i class="fa-solid fa-magnifying-glass"></i></a></li>
+
+			    <!-- Social links -->
+			    <!-- Found at: https://fontawesome.com/icons/envelope?f=classic&s=solid | Provider: Font Awesome | Last accessed 26/06/2025 -->
+				<li class="navIcon"><a href="mailto:toby.womack9.tw@gmail.com" target="_blank" rel="noopener noreferrer" title="Email"><i class="fa-solid fa-envelope"></i></a></li>
+
+			    <!-- Found at: https://fontawesome.com/icons/github?f=classic&s=brands | Provider: Font Awesome | Last accessed 26/06/2025 -->
+			    <li class="navIcon"><a href="https://github.com/tobywomack04" target="_blank" rel="noopener noreferrer" title="GitHub"><i class="fab fa-github"></i></a></li>
+
+			    <!-- Found at: https://fontawesome.com/icons/linkedin?f=classic&s=brands | Provider: Font Awesome | Last accessed 26/06/2025 -->
+			    <li class="navIcon"><a href="https://www.linkedin.com/in/toby-a-womack-7080371a4/" target="_blank" rel="noopener noreferrer" title="LinkedIn"><i class="fab fa-linkedin"></i></a></li>
+		    </ul>
+	    </nav>
+
+	    <div id="mainStatsWrapper">
+		    <div id="webIntro">
+		    	<p>
+		    		Welcome to my personal portfolio website!
+		    		<br>
+		    		<br>
+		    		This website is a personal project of mine, meticulously built from the ground up using HTML, CSS and JavaScript, while also integrating modern tools such as GitHub Actions and Google Analytics. Its primary purpose is to serve as both a digital portfolio and a development sandbox — a space where I can showcase my previous projects and experiment with new and interesting features. One of the key features of this site is a custom-built search system that allows you to find any content across my pages — fully client-side and fast. Unlike typical portfolios, this site also functions as a living development log — complete with versioning, real-time updates, and experimental features I'm actively building and testing. Make sure to check back in the future as this site is constantly evolving, fresh new projects and updates are added regularly!
+		    		<br>
+		    		<br>
+		    		Within this website you can explore:
+		    	</p>
+		    		<ul>
+		    			<li>A curated selection of both college and personal projects, complete with links to the respective GitHub repositories</li>
+		    			<li>A live feed of my most recent GitHub project activity</li>
+		    			<li>Contact details for personal and professional inquiries</li>
+		    			<li>External links to social platforms including GitHub, LinkedIn and YouTube</li>
+		    		</ul>
+	    		<p>
+	    			Use the navigation bar above to explore my portfolio, learn more about me or check out my projects page to see what I’ve been working on lately.
+	    			<br>
+	    			<br>
+		    		So whether you're here out of curiosity, collaboration, or inspiration, I hope you enjoy your stay — feel free to take a look around and make yourself at home!
+	    		</p>
+		    </div>
+
+		  	<div id="statsContainer">
+			    <div id="analyticsMetrics">
+			      	<div class="metric">
+			        	Total Visits: <span id="totalVisits">Loading...</span>
+			      	</div>
+
+			      	<div class="metric">
+			        	Average Time Spent: <span id="avgTimeOnSite">Loading...</span>
+			      	</div>
+
+			      	<div class="metric">
+			       		Pages per Session: <span id="pagesPerSession">Loading...</span>
+			      	</div>
+
+			      	<div class="metric">
+			        	Device Usage: <span id="deviceUsage">Loading...</span>
+			      	</div>
+			    </div>
+
+			    <div id="langBreakdown">
+			      	<canvas id="langChart" width="250" height="250"></canvas>
+			    </div>
+			</div>
+		</div>
+
+	    <p class="note">
+    		<strong>Note:</strong> This website is a work in progress and is continuously being improved. If you encounter any issues or bugs, please kindly submit an <a href="https://github.com/tobywomack04/tobywomack.com/issues" target="_blank" rel="noopener noreferrer">issue report</a> on the GitHub repository so I may address it promptly.
+    	</p>
+
+		<footer>
+		  	<div class="footerContent">
+		  		<div class="socials">
+		  			<!-- Social links -->
+				    <!-- Found at: https://fontawesome.com/icons/github?f=classic&s=brands | Provider: Font Awesome | Last accessed 26/06/2025 -->
+				    <a href="https://github.com/tobywomack04" target="_blank" rel="noopener noreferrer" title="GitHub"><i class="fab fa-github"></i></a>
+
+				    <!-- Found at: https://fontawesome.com/icons/linkedin?f=classic&s=brands | Provider: Font Awesome | Last accessed 26/06/2025 -->
+				    <a href="https://www.linkedin.com/in/toby-a-womack-7080371a4/" target="_blank" rel="noopener noreferrer" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+
+				    <!-- Found at: https://fontawesome.com/icons/youtube?f=classic&s=brands | Provider: Font Awesome | Last accessed 26/06/2025 -->
+				    <a href="https://www.youtube.com/@tobywomack04" target="_blank" rel="noopener noreferrer" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+
+				    <!-- Found at: https://fontawesome.com/icons/envelope?f=classic&s=solid | Provider: Font Awesome | Last accessed 26/06/2025 -->
+				    <a href="mailto:toby.womack9.tw@gmail.com" target="_blank" rel="noopener noreferrer" title="Email"><i class="fa-solid fa-envelope"></i></a>
+		  		</div>
+
+		    	<div class="centerFooter">
+			      	<em>&copy; 2025 Toby Womack & respective owners | All Rights Reserved</em>
+		      		<div class="creditsLink">
+		        		<a href="src/html/credits.html" pageFade>Credits</a>
+		      		</div>
+			    </div>
+
+			    <p class="version" id="versionText">Version: ...</p>
+		  	</div>
+		</footer>
+
+		<!-- Scripts -->
+	    <script src="src/js/terminalIntro.js"></script>
+	    <script src="src/js/pageFading.js"></script>
+	    <script src="src/js/getVersion.js"></script>
+	    <script src="src/js/toggleSearch.js"></script>
+	    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	    <script src="src/js/langChart.js"></script>
+	    <script src="src/js/hamburgerMenuToggle.js"></script>
+	    <script src="/src/js/displayGaMetrics.js"></script>
+	</body>
 </html>

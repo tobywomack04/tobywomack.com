@@ -1,36 +1,353 @@
+/*================*/
+/* Footer content */
+/*================*/
+
 footer {
-	text-align: center;
+  margin: 2em 0em;
+  padding: 0 1em;
 }
 
+.footerContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 1em;
+  position: relative;
+  flex-wrap: wrap;
+}
+
+.footerContent .version {
+  position: absolute;
+  right: 1em;
+  top: 1em;
+  color: grey;
+  font-size: 0.9em;
+}
+
+.centerFooter {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25em;
+}
+
+em, footer p {
+  color: grey;
+}
+
+.creditsLink {
+  display: inline-block;
+  text-align: center;
+  margin: 0.3em;
+}
+
+.creditsLink a {
+  display: inline;
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  color: grey;
+}
+
+.creditsLink a:hover {
+  text-decoration: underline;
+  color: white;
+}
+
+.socials {
+  display: flex;
+  gap: 1em;
+  flex-wrap: wrap;
+}
+
+.socials a i {
+  font-size: 1.5rem;
+  color: grey;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.socials a:hover i {
+  color: white;
+  transform: scale(1.1);
+}
+
+/*=======================*/
+/* Typography & Headings */
+/*=======================*/
 h1 {
 	text-align: center;
 }
 
-#nav {
-  position: sticky;
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #333;
-}
-
-#nav li {
-  float: left;
-}
-
-#nav li a {
-  display: block;
-  color: white;
+h2 {
   text-align: center;
-  padding: 14px 16px;
+}
+
+p, h2, h1, li a, ul {
+  color: white;
+  line-height: 1.5;
+}
+
+a {
+  color: cyan;
   text-decoration: none;
 }
 
-#nav li a:hover {
-  background-color: #111;
+a:hover {
+  text-decoration: underline;
 }
 
-#active {
-	background-color: cyan;
+/*=========*/
+/* Nav bar */
+/*=========*/
+.nav {
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: #333;
+}
+
+.navIcon a:hover i, .webPage a:hover {
+  color: cyan;
+}
+
+.active {
+  background-color: cyan;
+  color: #141414;
+}
+
+.navIcon i {
+  font-size: 1.1rem;
+  color: white;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.webPage {
+  display: inline-block;
+}
+
+.webPage a, .navIcon a {
+  display: block;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  font-weight: bold;
+}
+
+.webPage a:hover, .navIcon a:hover {
+  background-color: #111;
+  transform: scale(1.1);
+  text-shadow: 0 0 8px cyan;
+  text-decoration: none;
+}
+
+.searchBar {
+  display: none;
+  list-style: none;
+  padding: 10px 16px;
+}
+
+.searchBar.visible {
+  display: inline-block;
+}
+
+.searchBar input {
+  padding: 5px 10px;
+  border: none;
+  border-bottom: 1px solid #000;
+  border-bottom-color: white;
+  color: white;
+  outline: none;
+  font-size: 1em;
+  margin-left: 10px;
+  width: 125px;
+  transition: width 0.3s;
+  background: transparent;
+}
+
+.searchBar input:focus {
+  width: 175px;
+  border-bottom-color: cyan;
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+/*======*/
+/* Body */
+/*======*/
+body {
+  opacity: 1;
+  transition: opacity 0.6s ease;
+  background-color: #141414;
+}
+
+body.fadeOut {
+  opacity: 0;
+}
+
+/*======*/
+/* Note */
+/*======*/
+.note {
+  position: relative;
+  background-color: #ffeeba;
+  color: #856404;
+  border: 1px solid #ffeeba;
+  padding: 12px 16px;
+  border-radius: 6px;
+  font-weight: 600;
+  max-width: 32%;
+  margin: 1rem auto;
+  text-align: center;
+  display: block;
+  z-index: 0;
+}
+
+.note::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  background-image: 
+    repeating-linear-gradient(to right, yellow 0 4px, black 4px 8px),
+    repeating-linear-gradient(to bottom, yellow 0 4px, black 4px 8px),
+    repeating-linear-gradient(to right, yellow 0 4px, black 4px 8px),
+    repeating-linear-gradient(to bottom, yellow 0 4px, black 4px 8px);
+  background-position:
+    top left,
+    top right,
+    bottom right,
+    bottom left;
+  background-repeat: no-repeat;
+  background-size:
+    100% 4px,
+    4px 100%,
+    100% 4px,
+    4px 100%;
+  pointer-events: none;
+  z-index: -1;
+  border-radius: 6px;
+}
+
+.note a {
+  color: #856404;
+  text-decoration: underline;
+}
+
+/*=====================*/
+/*==== Mobile View ====*/
+/* (Max width: 768px) */
+/*=====================*/
+@media (max-width: 768px) {
+  
+  /*=========*/
+  /* Nav bar */
+  /*=========*/
+  .menu-toggle {
+    display: block;
+    background-color: #333;
+    padding: 0.1em 0.3em 0.2em 0.3em;
+  }
+
+  ul.nav {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: auto;
+    display: none;
+    flex-direction: column;
+    background-color: #111;
+    padding: 1rem 0;
+    z-index: 1000;
+    width: 200px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+  }
+
+  ul.nav.show {
+    display: flex;
+  }
+
+  .nav li {
+    padding: 0.75rem 1.5rem;
+  }
+
+  .spacer {
+    display: none;
+  }
+
+  .searchBar {
+    padding: 0.5rem 1.5rem;
+  }
+
+  .navIcon {
+    padding: 0.5rem 1.5rem;
+  }
+
+  .searchBar input {
+    width: 90%;
+    box-sizing: border-box;
+  }
+
+  .searchBar input:focus {
+  width: 100%;
+  }
+  
+  /*========*/
+  /* Footer */
+  /*========*/
+  .footerContent {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footerContent .version {
+    position: static;
+    margin-top: 1em;
+  }
+
+  .socials {
+    justify-content: center;
+  }
+
+  .centerFooter {
+    position: static;
+    transform: none;
+    margin: 1em auto 0 auto;
+    text-align: center;
+    order: 1;
+    margin-top: 0em;
+  }
+
+  /*======*/
+  /* Note */
+  /*======*/
+  .note {
+    margin-top: 1em;
+    max-width: 80%;
+  }
 }

@@ -1,0 +1,155 @@
+/*=================*/
+/* Profile Section */
+/*=================*/
+
+#mePic {
+  width: 17%;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+#getToKnowMe {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  max-width: 90%;
+  margin: 2em auto;
+  padding: 0 1em;
+}
+
+#meText {
+  flex: 1;
+}
+
+#meText p {
+  text-align: justify;
+  margin: 0;
+}
+
+#meIntro {
+  flex: 1 1 60%;
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  background-color: #1e1e1e;
+  border-radius: 1em;
+  padding: 1.5rem;
+  box-sizing: border-box;
+}
+
+#quickFacts {
+  flex: 1 1 30%;
+  background-color: #1e1e1e;
+  border-radius: 1em;
+  padding: 0rem 1.5rem 0rem 1.5rem;
+  box-sizing: border-box;
+  max-width: 17%;
+}
+
+#quickFacts ul {
+  padding-left: 1.5em;
+  margin-top: 0em;
+}
+
+#quickFacts p {
+  font-weight: bold;
+  font-size: 1.2em;
+  margin-bottom: 0.5em;
+}
+
+/*================*/
+/* Skills Section */
+/*================*/
+#skills {
+  margin-bottom: 2.5em;
+}
+
+#skillsGrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2.5rem;
+  max-width: 80%;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.langSkill {
+  flex: 0 1 22%;
+  min-width: 150px;
+  box-sizing: border-box;
+  text-align: center;
+  background-color: #1e1e1e;
+  padding-top: 1em;
+  border-radius: 1em;
+}
+
+#skillsGrid i, #skillsGrid svg {
+  font-size: 3rem;
+  width: 140px;
+  height: 140px;
+  fill: currentColor;
+  color: cyan;
+  font-size: 140px;
+}
+
+#skillsGrid p {
+  margin-top: 0.5rem;
+  font-weight: bold;
+  color: white;
+  font-size: 1.5em;
+}
+
+svg {
+  width: 1.4em; 
+  height: 1.4em;
+}
+
+/*=====================*/
+/*==== Mobile View ====*/
+/* (Max width: 768px) */
+/*=====================*/
+
+@media (max-width: 768px) {
+  
+  #getToKnowMe {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  #meIntro, #quickFacts {
+    flex: 1 1 100%;
+    width: 100%;
+  }
+
+  #quickFacts {
+    max-width: none;
+  }
+
+  #meIntro {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  #mePic {
+    width: 60%;
+  }
+
+  #meText p {
+    text-align: left;
+  }
+
+  #meIntro p {
+    text-align: left;
+  }
+
+  .langSkill {
+    flex: 1 1 45%;
+    max-width: 45%;
+  }
+}

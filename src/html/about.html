@@ -16,22 +16,177 @@
 
 		<title>About Me</title>
 
+		<!-- Favicon icon -->
+		<!-- Found at: https://fontawesome.com/icons/microchip?f=classic&s=solid | Last accessed 26/06/2025 -->
+		<link rel="icon" type="image/svg+xml" href="../../media/favicon.svg">
+
 		<!-- Stylesheets -->
 		<link rel="stylesheet" href="../css/allStyling.css">
+		<link rel="stylesheet" href="../css/aboutStyling.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 	</head>
 
 	<body>
 		<h1>About Me</h1>
 
-		<ul id="nav">
-			<li><a href="../../index.html">Home</a></li>
-			<li><a href="projects.html">College Projects</a></li>
-			<li><a href="about.html" id="active">About Me</a></li>
-			<li><a href="contact.html">Contact</a></li>
-		</ul>
-	</body>
+		<nav>
+			<button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">&#9776;</button>
+			<ul class="nav">
+				<!-- Page navigation -->
+				<li class="webPage"><a href="../../index.html" pageFade>Home</a></li>
+				<li class="webPage"><a href="about.html" class="active" pageFade>About Me</a></li>
+				<li class="webPage"><a href="projects.html" pageFade>Projects</a></li>
+				
+				<!-- Space between page navigation, search icon & social links -->
+			    <li class="spacer"></li>
 
-	<footer>
-		<p>&copy Toby Womack | All Rights Reserved</p>
-	</footer>
+			    <!-- Hidden search box -->
+			    <li class="searchBar"><input type="text" id="searchInput" placeholder="Search..."></li>
+
+			    <!-- Search icon -->
+			    <!-- Found at: https://fontawesome.com/icons/magnifying-glass?f=classic&s=solid | Provider: Font Awesome | Last accessed 26/06/2025 -->
+			    <li class="navIcon"><a href="#" onclick="toggleSearch(event)"><i class="fa-solid fa-magnifying-glass"></i></a></li>
+
+			    <!-- Social links -->
+			    <!-- Found at: https://fontawesome.com/icons/envelope?f=classic&s=solid | Provider: Font Awesome | Last accessed 26/06/2025 -->
+				<li class="navIcon"><a href="mailto:toby.womack9.tw@gmail.com" target="_blank" rel="noopener noreferrer" title="Email"><i class="fa-solid fa-envelope"></i></a></li>
+			    
+			    <!-- Found at: https://fontawesome.com/icons/github?f=classic&s=brands | Provider: Font Awesome | Last accessed 26/06/2025 -->
+			    <li class="navIcon"><a href="https://github.com/tobywomack04" target="_blank" rel="noopener noreferrer" title="GitHub"><i class="fab fa-github"></i></a></li>
+
+			    <!-- Found at: https://fontawesome.com/icons/linkedin?f=classic&s=brands | Provider: Font Awesome | Last accessed 26/06/2025 -->
+			    <li class="navIcon"><a href="https://www.linkedin.com/in/toby-a-womack-7080371a4/" target="_blank" rel="noopener noreferrer" title="LinkedIn"><i class="fab fa-linkedin"></i></a></li>
+			</ul>
+		</nav>
+
+		<div id="getToKnowMe">
+			<div id="meIntro">
+				<img id="mePic" src="../../media/mePic.jpeg"></img>
+
+				<div id="meText">
+					<p>
+						I'm a third-year college student studying Software Development with Games Programming at <a href="https://tus.ie/" target="_blank" rel="noopener noreferrer">TUS Thurles</a>. My passion for technology runs deep—from building custom PCs to exploring the inner workings of software systems and staying up to date with emerging technologies. I’m always eager to learn and grow, striving to become the best programmer I can be by continuously expanding my knowledge and adapting to the ever-changing tech landscape.
+						<br>
+						At my core, I’m a PC gamer with a genuine love for both playing and creating video games. Whether I’m dropping into a high-stakes match in <a href="https://store.steampowered.com/app/578080/PUBG_BATTLEGROUNDS/" target="_blank" rel="noopener noreferrer">PUBG: Battlegrounds</a>, delving into the co-op chaos of <a href="https://store.steampowered.com/app/548430/Deep_Rock_Galactic/" target="_blank" rel="noopener noreferrer">Deep Rock Galactic</a> or managing prehistoric ecosystems in <a href="https://store.steampowered.com/app/648350/Jurassic_World_Evolution/" target="_blank" rel="noopener noreferrer">Jurassic World Evolution</a>, gaming is both a source of inspiration and relaxation for me.
+						<br>
+						Beyond the screen, I’m passionate about go-kart racing, motorbikes, and immersing myself in music—it’s this blend of creativity, competition, and curiosity that fuels everything I do.
+						<br>
+						I'm Toby Womack—and I just might be your next favourite developer.
+					</p>
+				</div>
+			</div>
+
+			<div id="quickFacts">
+				<p>Quick Facts:</p>
+				<ul>
+					<li>I'm 20 years old</li>
+					<li>I'm English</li>
+					<li>I live in Ireland</li>
+					<li>My main programming languages are C++ and SFML</li>
+					<li>I ride a motorbike 😎</li>
+					<li>Dark mode > light mode</li>
+					<li>Monster Energy enjoyer</li>
+				</ul>
+			</div>
+		</div>
+
+    	<div id="skills">
+    		<h2>Skills</h2>
+    		<div id="skillsGrid">
+	    		<div class="langSkill">
+	    			<!-- Found at: https://fontawesome.com/icons/html5?f=classic&s=brands | Provider: Font Awesome | Last accessed 26/06/2025 -->
+	    			<i class="fa-brands fa-html5"></i>
+	    			<p>HTML</p>
+	    		</div>
+
+	    		<div class="langSkill">
+	    			<!-- Found at: https://fontawesome.com/icons/css3-alt?f=classic&s=brands | Provider: Font Awesome | Last accessed 26/06/2025 -->
+	    			<i class="fa-brands fa-css3-alt"></i>
+	    			<p>CSS</p>
+	    		</div>
+
+	    		<div class="langSkill">
+	    			<!-- Found at: https://fontawesome.com/icons/js?f=classic&s=brands | Provider: Font Awesome | Last accessed 26/06/2025 -->
+	    			<i class="fa-brands fa-js"></i>
+	    			<p>JavaScript</p>
+	    		</div>
+
+	    		<div class="langSkill">
+	    			<!-- Found at: https://fontawesome.com/icons/java?f=classic&s=brands | Provider: Font Awesome | Last accessed 26/06/2025 -->
+	    			<i class="fa-brands fa-java"></i>
+	    			<p>Java</p>
+	    		</div>
+
+	    		<div class="langSkill">
+	    			<!-- Found at: https://www.svgrepo.com/svg/305912/cplusplus | Provider: SVG REPO | Last accessed 26/06/2025 -->
+	    			<svg fill="currentColor" width="800px" height="800px" viewBox="0 0 24 24" role="img" xmlns="http://www.w3.org/2000/svg"><title>C++ icon</title><path d="M22.393 6c-.167-.29-.398-.543-.652-.69L12.925.22c-.508-.293-1.339-.293-1.847 0L2.26 5.31c-.508.293-.923 1.013-.923 1.6v10.18c0 .294.104.62.271.91.167.29.398.543.652.689l8.816 5.091c.508.293 1.339.293 1.847 0l8.816-5.091c.254-.146.485-.399.652-.689s.271-.616.271-.91V6.91c.002-.294-.102-.62-.269-.91zM12 19.109c-3.92 0-7.109-3.189-7.109-7.109S8.08 4.891 12 4.891a7.133 7.133 0 0 1 6.156 3.552l-3.076 1.781A3.567 3.567 0 0 0 12 8.445c-1.96 0-3.554 1.595-3.554 3.555S10.04 15.555 12 15.555a3.57 3.57 0 0 0 3.08-1.778l3.077 1.78A7.135 7.135 0 0 1 12 19.109zm7.109-6.714h-.79v.79h-.79v-.79h-.79v-.79h.79v-.79h.79v.79h.79v.79zm2.962 0h-.79v.79h-.79v-.79h-.789v-.79h.789v-.79h.79v.79h.79v.79z"/></svg>
+	    			<p>C++</p>
+	    		</div>
+
+	    		<div class="langSkill">
+	    			<!-- Found at: https://www.streamlinehq.com/icons/download/sfml--31088 | Provider: Streamline | Last accessed 26/06/2025 -->
+					<svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" id="Sfml--Streamline-Simple-Icons">
+						<desc>Sfml Streamline Icon: https://streamlinehq.com</desc><title>SFML</title><path d="M12.187 0.3336C11.1144 0.312 9.8776 0.863 7.9587 2.241L3.162 5.7258C0.252 7.8401 -0.839 8.5272 0.6917 13.3288l1.8322 5.639c1.1115 3.4208 1.4278 4.6711 6.4675 4.6991H14.92c3.5969 0 4.884 0.085 6.4678 -4.6991l1.8319 -5.639c1.1115 -3.421 1.5903 -4.618 -2.4703 -7.603L15.953 2.241h-0.0004C14.4069 1.1178 13.4026 0.358 12.187 0.3336zm-0.1624 1.8837c0.0652 0.0015 0.1303 0.0048 0.1953 0.01 1.0784 0.0831 1.6791 0.6384 2.3401 1.1186l0.0193 0.0193 -2.128 8.1684h-0.9257L9.404 3.3652c0.0067 -0.006 0.0118 -0.0137 0.0192 -0.0193 0.7741 -0.5944 1.5245 -1.0708 2.4109 -1.125l0.1905 -0.0036zM16.128 4.489h0.0008l0.0896 0.0643 3.8771 2.8158c0.9207 0.632 1.6776 1.2778 1.9282 2.3144 0.2542 1.0514 -0.0947 1.7946 -0.3472 2.5716l-2.1082 6.506c-0.3166 1.0708 -0.699 1.9873 -1.6073 2.5459 -0.9213 0.5666 -1.7352 0.4693 -2.5523 0.4693H8.568c-1.117 0.03 -2.1064 -0.0413 -2.9187 -0.7329 -0.8236 -0.7012 -0.982 -1.5052 -1.2344 -2.2823l-2.1151 -6.506c-0.3745 -1.0545 -0.6065 -2.021 -0.1993 -3.0087 0.4123 -1 1.1262 -1.397 1.7872 -1.8773l3.8767 -2.8158 0.0835 -0.0579 0.8358 3.208 -0.2121 0.1543 -2.771 2.0058c-0.5628 0.409 -0.667 0.5092 -0.7135 0.5465 0.012 0.0598 0.0363 0.2851 0.2379 0.8486l2.1279 6.5446c0.1988 0.6723 0.2754 0.8034 0.2958 0.855 0.0652 0.0084 0.2856 0.0495 0.8743 0.0322h6.8853c0.6295 0 0.8264 -0.0174 0.8997 -0.0193 0.0264 -0.0569 0.1413 -0.252 0.3086 -0.8229l2.1281 -6.551c0.194 -0.5974 0.2404 -0.804 0.2571 -0.8615 -0.048 -0.0451 -0.2023 -0.2149 -0.6879 -0.5464l-2.803 -2.0316 -0.2186 -0.1607 0.8358 -3.208h-0.0001z" fill="currentColor" stroke-width="1"></path>
+					</svg>
+	    			<p>SFML</p>
+	    		</div>
+
+	    		<div class="langSkill">
+	    			<!-- Found at: https://fontawesome.com/icons/r-project?f=classic&s=brands | Provider: Font Awesome | Last accessed 26/06/2025 -->
+	    			<i class="fa-brands fa-r-project"></i>
+	    			<p>R</p>
+	    		</div>
+
+	    		<div class="langSkill">
+	    			<!-- Found at: https://fontawesome.com/icons/unity?f=classic&s=brands | Provider: Font Awesome | Last accessed 26/06/2025 -->
+	    			<i class="fa-brands fa-unity"></i>
+	    			<p>Unity (learning)</p>
+	    		</div>
+
+	    		<div class="langSkill">
+	    			<!-- Found at: https://fontawesome.com/icons/python?f=classic&s=brands | Provider: Font Awesome | Last accessed 26/06/2025 -->
+	    			<i class="fa-brands fa-python"></i>
+	    			<p>Python (learning)</p>
+	    		</div>
+	    	</div>
+    	</div>
+
+    	<p class="note">
+    		<strong>Note:</strong> This website is a work in progress and is continuously being improved. If you encounter any issues or bugs, please kindly submit an <a href="https://github.com/tobywomack04/tobywomack.com/issues" target="_blank" rel="noopener noreferrer">issue report</a> on the GitHub repository so I may address it promptly.
+    	</p>
+
+		<footer>
+		  	<div class="footerContent">
+		  		<div class="socials">
+		  			<!-- Social links -->
+				    <!-- Found at: https://fontawesome.com/icons/github?f=classic&s=brands | Provider: Font Awesome | Last accessed 26/06/2025 -->
+				    <a href="https://github.com/tobywomack04" target="_blank" rel="noopener noreferrer" title="GitHub"><i class="fab fa-github"></i></a>
+
+				    <!-- Found at: https://fontawesome.com/icons/linkedin?f=classic&s=brands | Provider: Font Awesome | Last accessed 26/06/2025 -->
+				    <a href="https://www.linkedin.com/in/toby-a-womack-7080371a4/" target="_blank" rel="noopener noreferrer" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+
+				    <!-- Found at: https://fontawesome.com/icons/youtube?f=classic&s=brands | Provider: Font Awesome | Last accessed 26/06/2025 -->
+				    <a href="https://www.youtube.com/@tobywomack04" target="_blank" rel="noopener noreferrer" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+
+				    <!-- Found at: https://fontawesome.com/icons/envelope?f=classic&s=solid | Provider: Font Awesome | Last accessed 26/06/2025 -->
+				    <a href="mailto:toby.womack9.tw@gmail.com" target="_blank" rel="noopener noreferrer" title="Email"><i class="fa-solid fa-envelope"></i></a>
+		  		</div>
+
+		    	<div class="centerFooter">
+		    		<em>&copy; 2025 Toby Womack & respective owners | All Rights Reserved</em>
+		    	<div class="creditsLink">
+		      		<a href="credits.html" pageFade>Credits</a>
+		    	</div>
+		  	</div>
+
+			    <p class="version" id="versionText">Version: ...</p>
+		  	</div>
+		</footer>
+
+		<!-- Scripts -->
+	    <script src="../js/pageFading.js"></script>
+	    <script src="../js/getVersion.js"></script>
+	    <script src="../js/toggleSearch.js"></script>
+	    <script src="../js/hamburgerMenuToggle.js"></script>
+	</body>
 </html>

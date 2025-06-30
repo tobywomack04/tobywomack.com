@@ -1,0 +1,26 @@
+name: Auto Bump Version
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  bump-version:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Bump version number
+        run: |
+          VER=$(cat version.txt)
+          NEW_VER=$(awk '{printf "%.1f", $1 + 0.1}' <<< "$VER")
+          echo "$NEW_VER" > version.txt
+
+      - name: Commit and push new version
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "actions@github.com"
+          git add version.txt
+          git commit -m "Auto-bump version to $NEW_VER" || echo "No changes to commit"
+          git push

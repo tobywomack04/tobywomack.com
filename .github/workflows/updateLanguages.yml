@@ -1,0 +1,35 @@
+name: Update Tech Stack Language Data
+
+on:
+  push:
+    branches: [main]  # Runs on any push to the main branch
+  schedule:
+    - cron: "0 0 * * 0"  # Runs every Sunday at midnight UTC
+
+jobs:
+  update-languages:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Fetch GitHub language data
+        run: |
+          curl -s -H "Accept: application/vnd.github.v3+json" \
+               -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+               https://api.github.com/repos/${{ github.repository }}/languages \
+            > src/data/languages.json
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+          if [ -n "$(git status --porcelain)" ]; then
+            git add src/data/languages.json
+            git commit -m "Auto-update tech stack language data"
+            git push
+          else
+            echo "No language changes to commit."
+          fi
