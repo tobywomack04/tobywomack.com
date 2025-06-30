@@ -2,7 +2,7 @@ name: Fetch GA4 Metrics
 
 on:
   schedule:
-    - cron: '0 0 * * *'  # runs daily at midnight UTC
+    - cron: '0 0 * * *'  # daily midnight UTC
   push:
     branches:
       - main
@@ -13,29 +13,29 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repo
-      uses: actions/checkout@v3
+      - name: Checkout repo
+        uses: actions/checkout@v3
 
-    - name: Setup Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '18'
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
 
-    - name: Install dependencies
-      working-directory: src/js
-      run: npm install
+      - name: Install dependencies
+        working-directory: src/js
+        run: npm install
 
-    - name: Run GA4 metrics script
-      working-directory: src/js
-      env:
-        GA_SERVICE_ACCOUNT_KEY: ${{ secrets.GA_SERVICE_ACCOUNT_KEY }}
-        GA_PROPERTY_ID: ${{ secrets.GA_PROPERTY_ID }}
-      run: node fetchGaMetrics.js
+      - name: Run GA4 metrics script
+        working-directory: src/js
+        env:
+          GA_SERVICE_ACCOUNT_KEY: ${{ secrets.GA_SERVICE_ACCOUNT_KEY }}
+          GA_PROPERTY_ID: ${{ secrets.GA_PROPERTY_ID }}
+        run: node fetchGaMetrics.js
 
-    - name: Commit and push metrics.json if changed
-      run: |
-        git config --global user.name "github-actions[bot]"
-        git config --global user.email "github-actions[bot]@users.noreply.github.com"
-        git add metrics.json
-        git diff --quiet --cached || git commit -m "Update GA4 metrics"
-        git push
+      - name: Commit and push metrics.json if changed
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add src/data/metrics.json
+          git diff --quiet --cached || git commit -m "Update GA4 metrics"
+          git push
