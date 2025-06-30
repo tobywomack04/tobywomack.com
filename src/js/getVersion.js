@@ -1,4 +1,4 @@
-const versionUrl = "https://raw.githubusercontent.com/tobywomack04/tobywomack.com/main/version.txt";
+const versionUrl = "https://raw.githubusercontent.com/tobywomack04/tobywomack.com/main/src/data/version.txt";
 
 fetch(versionUrl)
   .then(res => res.text())
