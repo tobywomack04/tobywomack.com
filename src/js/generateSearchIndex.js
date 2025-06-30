@@ -27,7 +27,7 @@ function generateIndex() {
       const html = fs.readFileSync(filePath, 'utf8');
 
       const $ = cheerio.load(html);
-      const title = $('title').text() || file;
+      const title = $('head > title').text() || file;
       const content = extractTextFromHtml(html);
 
       index.push({

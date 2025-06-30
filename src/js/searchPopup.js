@@ -1,72 +1,62 @@
-let searchIndex = [];
+const searchInput = document.getElementById("searchInput");
+const resultsDropdown = document.getElementById("searchResults");
 
-async function loadSearchIndex() {
-  try {
-    const res = await fetch('/src/data/search-index.json');
-    searchIndex = await res.json();
-  } catch (err) {
-    console.error('Failed to load search index:', err);
-  }
+async function fetchIndex() {
+  const res = await fetch('/src/data/search-index.json');
+  return await res.json();
 }
 
-function searchSite(query) {
-  const lowerQuery = query.trim().toLowerCase();
-  if (!lowerQuery) return [];
-
-  return searchIndex.filter(entry =>
-    entry.title.toLowerCase().includes(lowerQuery) ||
-    entry.content.toLowerCase().includes(lowerQuery)
-  );
+function highlightMatch(content, term) {
+  const regex = new RegExp(`(.{0,40})(${term})(.{0,40})`, 'i');
+  const match = content.match(regex);
+  return match ? `${match[1]}${match[2]}${match[3]}` : '';
 }
 
-function showPopup(results) {
-  const popup = document.getElementById('searchPopup');
-  popup.innerHTML = '';
+function renderResults(results, term) {
+  resultsDropdown.innerHTML = '';
 
   if (results.length === 0) {
-    popup.innerHTML = '<div class="resultItem">No results found</div>';
-  } else {
-    results.forEach(result => {
-      const div = document.createElement('div');
-      div.classList.add('resultItem');
-      div.innerHTML = `<a href="${result.url}"><strong>${result.title}</strong></a><p>${result.content.substring(0, 100)}...</p>`;
-      popup.appendChild(div);
-    });
+    const noResult = document.createElement("div");
+    noResult.className = "searchResultItem";
+    noResult.textContent = "No results found.";
+    resultsDropdown.appendChild(noResult);
+    return;
   }
 
-  popup.classList.remove('hidden');
-}
+  results.forEach(result => {
+    const item = document.createElement("div");
+    item.className = "searchResultItem";
 
-function hidePopup() {
-  const popup = document.getElementById('searchPopup');
-  popup.classList.add('hidden');
-}
+    const link = document.createElement("a");
+    link.href = result.url;
+    link.textContent = result.title;
+    link.className = "searchResultTitle";
 
-document.addEventListener('DOMContentLoaded', async () => {
-  await loadSearchIndex();
+    const preview = document.createElement("div");
+    preview.textContent = highlightMatch(result.content, term);
+    preview.className = "searchResultSnippet";
 
-  const input = document.getElementById('searchInput');
-  const popup = document.getElementById('searchPopup');
-
-  input.addEventListener('input', () => {
-    const query = input.value;
-    const results = searchSite(query);
-    if (query.trim() === '') {
-      hidePopup();
-    } else {
-      showPopup(results);
-    }
+    item.appendChild(link);
+    item.appendChild(preview);
+    resultsDropdown.appendChild(item);
   });
 
-  // Hide popup when clicking outside
-  document.addEventListener('click', e => {
-    if (!popup.contains(e.target) && e.target !== input) {
-      hidePopup();
-    }
-  });
+  resultsDropdown.style.display = "block";
+}
 
-  // Hide on Escape
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') hidePopup();
+fetchIndex().then(indexData => {
+  searchInput.addEventListener("input", () => {
+    const term = searchInput.value.trim().toLowerCase();
+    if (term.length < 2) {
+      resultsDropdown.innerHTML = "";
+      resultsDropdown.style.display = "none";
+      return;
+    }
+
+    const filtered = indexData.filter(entry =>
+      entry.content.toLowerCase().includes(term)
+    );
+
+    renderResults(filtered, term);
   });
 });
