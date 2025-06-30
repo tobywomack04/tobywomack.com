@@ -2,7 +2,7 @@ let searchIndex = [];
 
 async function loadSearchIndex() {
   try {
-    const res = await fetch('src/data/search-index.json');
+    const res = await fetch('/src/data/search-index.json');
     searchIndex = await res.json();
   } catch (err) {
     console.error('Failed to load search index:', err);
