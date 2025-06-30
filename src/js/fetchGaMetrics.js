@@ -2,20 +2,19 @@ const { google } = require('googleapis');
 const fs = require('fs');
 
 async function fetchMetrics() {
-  // Decode base64 secret to JSON string, then parse
   if (!process.env.GA_SERVICE_ACCOUNT_KEY) {
     console.error('Missing GA_SERVICE_ACCOUNT_KEY environment variable.');
+    process.exit(1);
+  }
+
+  if (!process.env.GA_PROPERTY_ID) {
+    console.error('Missing GA_PROPERTY_ID environment variable.');
     process.exit(1);
   }
 
   const keyJson = Buffer.from(process.env.GA_SERVICE_ACCOUNT_KEY, 'base64').toString('utf-8');
   const key = JSON.parse(keyJson);
   const propertyId = process.env.GA_PROPERTY_ID;
-
-  if (!propertyId) {
-    console.error('Missing GA_PROPERTY_ID environment variable.');
-    process.exit(1);
-  }
 
   const auth = new google.auth.GoogleAuth({
     credentials: key,
@@ -81,7 +80,7 @@ async function fetchMetrics() {
       deviceBreakdown,
     };
 
-    fs.writeFileSync('src/data/metrics.json', JSON.stringify(metrics, null, 2));
+    fs.writeFileSync('../data/metrics.json', JSON.stringify(metrics, null, 2));
     console.log('Metrics saved to src/data/metrics.json');
   } catch (err) {
     console.error('Error fetching metrics:', err);
