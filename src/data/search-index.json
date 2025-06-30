@@ -1,0 +1,22 @@
+[
+  {
+    "title": "Home",
+    "url": "/index.html",
+    "content": "Toby Womack's Portfolio Welcome to my personal portfolio website! This website is a personal project of mine, meticulously built from the ground up using HTML, CSS and JavaScript, while also integrating modern tools such as GitHub Actions and Google Analytics. Its primary purpose is to serve as both"
+  },
+  {
+    "title": "About MeC++ iconSFML",
+    "url": "/src/html/about.html",
+    "content": "About Me I'm a third-year college student studying Software Development with Games Programming at TUS Thurles. My passion for technology runs deep—from building custom PCs to exploring the inner workings of software systems and staying up to date with emerging technologies. I’m always eager to learn"
+  },
+  {
+    "title": "Credits",
+    "url": "/src/html/credits.html",
+    "content": "Credits Sources Typing audio file: Original file | Uploaded by: gamer500 | Provided by: Freesound | Last Accessed: 26/06/2025 Magnifying glass icon: Original file | Provider: Font Awesome | Last accessed 26/06/2025 GitHub icon: Original file | Provider: Font Awesome | Last accessed 26/06/2025 Linked"
+  },
+  {
+    "title": "Projects",
+    "url": "/src/html/projects.html",
+    "content": "My Projects Most recent GitHub project Loading repository... Other GitHub projects SFML-Zombie-Game A class project to make adaptations to a wave based zombie game 💠C++ SFML-Custom-Timber A class project to make our own adaptations of the game Timber 💠C++ SFML-Custom-Pong A class project to make o"
+  }
+]
