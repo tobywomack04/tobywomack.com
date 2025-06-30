@@ -2,11 +2,18 @@ const { google } = require('googleapis');
 const fs = require('fs');
 
 async function fetchMetrics() {
-  const key = JSON.parse(process.env.GA_SERVICE_ACCOUNT_KEY);
-  const propertyId = process.env.GA_PROPERTY_ID;
+  // Decode base64 from env var and parse JSON
+  const base64Key = process.env.GA_SERVICE_ACCOUNT_KEY;
+  if (!base64Key) {
+    console.error('Missing GA_SERVICE_ACCOUNT_KEY environment variable.');
+    process.exit(1);
+  }
+  const keyJsonString = Buffer.from(base64Key, 'base64').toString('utf-8');
+  const key = JSON.parse(keyJsonString);
 
-  if (!propertyId || !key) {
-    console.error('Missing GA_PROPERTY_ID or GA_SERVICE_ACCOUNT_KEY environment variables.');
+  const propertyId = process.env.GA_PROPERTY_ID;
+  if (!propertyId) {
+    console.error('Missing GA_PROPERTY_ID environment variable.');
     process.exit(1);
   }
 
@@ -27,7 +34,7 @@ async function fetchMetrics() {
       metrics: [
         { name: 'sessions' },
         { name: 'averageSessionDuration' },
-        { name: 'screenPageViews' }
+        { name: 'screenPageViews' },
       ],
       dimensions: [{ name: 'deviceCategory' }],
     },
@@ -54,7 +61,7 @@ async function fetchMetrics() {
         deviceBreakdown[device] = {
           sessions,
           averageSessionDuration: avgDuration,
-          pageViews
+          pageViews,
         };
       }
     }
@@ -71,7 +78,7 @@ async function fetchMetrics() {
       totalSessions,
       averageSessionDuration,
       pagesPerSession,
-      deviceBreakdown
+      deviceBreakdown,
     };
 
     fs.writeFileSync('src/data/metrics.json', JSON.stringify(metrics, null, 2));
