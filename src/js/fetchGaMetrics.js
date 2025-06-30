@@ -1,5 +1,5 @@
-import { google } from 'googleapis';
-import fs from 'fs';
+const { google } = require('googleapis');
+const fs = require('fs');
 
 async function fetchMetrics() {
   const key = JSON.parse(process.env.GA_SERVICE_ACCOUNT_KEY);
@@ -74,7 +74,7 @@ async function fetchMetrics() {
       deviceBreakdown
     };
 
-    fs.writeFileSync('../data/metrics.json', JSON.stringify(metrics, null, 2));
+    fs.writeFileSync('src/data/metrics.json', JSON.stringify(metrics, null, 2));
     console.log('Metrics saved to src/data/metrics.json');
   } catch (err) {
     console.error('Error fetching metrics:', err);

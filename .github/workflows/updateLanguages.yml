@@ -2,9 +2,12 @@ name: Update Tech Stack Language Data
 
 on:
   push:
-    branches: [main]  # Runs on any push to the main branch
+    branches: [main]
   schedule:
-    - cron: "0 0 * * 0"  # Runs every Sunday at midnight UTC
+    - cron: "0 0 * * 0"  # every Sunday at midnight UTC
+
+permissions:
+  contents: write
 
 jobs:
   update-languages:
