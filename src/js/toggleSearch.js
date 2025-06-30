@@ -1,13 +1,19 @@
 function toggleSearch(event) {
   event.preventDefault();
   const searchBar = document.querySelector('.searchBar');
-  if (!searchBar) return;
-
-  searchBar.classList.toggle('visible');
+  const searchInput = document.getElementById('searchInput');
 
   if (searchBar.classList.contains('visible')) {
-    document.getElementById('searchInput').focus();
+    searchBar.classList.remove('visible');
+    hidePopup();
+    searchInput.value = '';
+  } else {
+    searchBar.classList.add('visible');
+    searchInput.focus();
   }
 }
 
-window.toggleSearch = toggleSearch;
+function hidePopup() {
+  const popup = document.getElementById('searchPopup');
+  popup.classList.add('hidden');
+}

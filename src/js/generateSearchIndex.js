@@ -33,7 +33,7 @@ function generateIndex() {
       index.push({
         title,
         url: path.posix.join(baseUrl, file),
-        content: content.substring(0, 300)
+        content: content
       });
     });
   });

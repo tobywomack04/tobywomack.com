@@ -154,6 +154,7 @@ a:hover {
   display: none;
   list-style: none;
   padding: 10px 16px;
+  position: relative;
 }
 
 .searchBar.visible {
@@ -177,6 +178,49 @@ a:hover {
 .searchBar input:focus {
   width: 175px;
   border-bottom-color: cyan;
+}
+
+/* Popup dropdown for search results */
+.searchPopup {
+  position: absolute;
+  top: calc(100% + 5px);
+  left: 10px;
+  width: 300px;
+  max-height: 300px;
+  overflow-y: auto;
+  background: #1c1c1c;
+  color: white;
+  border: 1px solid #444;
+  border-radius: 5px;
+  z-index: 1000;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.searchPopup.hidden {
+  display: none;
+}
+
+.searchPopup .resultItem {
+  padding: 10px;
+  border-bottom: 1px solid #333;
+}
+
+.searchPopup .resultItem:last-child {
+  border-bottom: none;
+}
+
+.searchPopup .resultItem a {
+  color: cyan;
+  text-decoration: none;
+}
+
+.searchPopup .resultItem a:hover {
+  text-decoration: underline;
+}
+
+.searchPopup .resultItem p {
+  margin: 5px 0 0;
+  font-size: 0.9em;
 }
 
 .menu-toggle {
