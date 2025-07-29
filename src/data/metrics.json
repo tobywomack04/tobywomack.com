@@ -1,17 +1,17 @@
 {
-  "totalSessions": 53,
-  "averageSessionDuration": 95.0759039245283,
-  "pagesPerSession": 2.7358490566037736,
+  "totalSessions": 51,
+  "averageSessionDuration": 97.5811055098039,
+  "pagesPerSession": 2.4705882352941178,
   "deviceBreakdown": {
     "mobile": {
-      "sessions": 30,
-      "averageSessionDuration": 154.7073593,
-      "pageViews": 113
+      "sessions": 29,
+      "averageSessionDuration": 157.89083627586206,
+      "pageViews": 95
     },
     "desktop": {
-      "sessions": 23,
-      "averageSessionDuration": 17.295744739130438,
-      "pageViews": 32
+      "sessions": 22,
+      "averageSessionDuration": 18.081914954545454,
+      "pageViews": 31
     }
   }
 }
