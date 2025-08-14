@@ -36,7 +36,7 @@ async function loadLangChart() {
           legend: {
             position: 'bottom',
             labels: {
-              color: '#333'
+              color: '#FFFFFF'
             }
           },
           tooltip: {
