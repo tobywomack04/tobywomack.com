@@ -1,12 +1,12 @@
 {
-  "totalSessions": 9,
-  "averageSessionDuration": 43.399178666666664,
-  "pagesPerSession": 2.111111111111111,
+  "totalSessions": 10,
+  "averageSessionDuration": 39.5544244,
+  "pagesPerSession": 2,
   "deviceBreakdown": {
     "desktop": {
-      "sessions": 8,
-      "averageSessionDuration": 47.469138375,
-      "pageViews": 17
+      "sessions": 9,
+      "averageSessionDuration": 42.744971444444445,
+      "pageViews": 18
     },
     "mobile": {
       "sessions": 1,
